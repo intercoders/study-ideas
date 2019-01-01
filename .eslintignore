@@ -1,1 +1,5 @@
 /src/serviceWorker.js
+
+# webpack config
+/config
+/scripts
