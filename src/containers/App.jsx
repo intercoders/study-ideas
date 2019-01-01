@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
+/* eslint-disable */
+import Container from '$components/layout/Container';
 
-import Button from '$components/Button';
-
-import { Wrapper } from './App.styles';
+import { Wrapper, Header, Main } from './App.styles';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Button />
+        <Header>
+          <Container>
+            <h1>Study Ideas</h1>
+            <div>blabla</div>
+          </Container>
+        </Header>
+        <Main>
+          <Container>
+            List of ideas...
+          </Container>
+        </Main>
       </Wrapper>
     );
   }
