@@ -12,7 +12,6 @@ class App extends Component {
         <Header>
           <Container>
             <h1>Study Ideas</h1>
-            <div>blabla</div>
           </Container>
         </Header>
         <Main>

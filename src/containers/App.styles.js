@@ -4,14 +4,17 @@ export const Wrapper = styled.div`
 `;
 
 export const Header = styled.div`
-  padding: 20px 0;
+  padding: 15px 0;
 
-  background: #1b4a1d;
+  background: #1b2b4a;
   color: #fff;
 
   h1 {
     margin: 0;
-    font-size: 26px;
+    font-size: 18px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 `;
 
