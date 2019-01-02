@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import Container from '$components/layout/Container';
 import Search from '$components/Search';
 import Button from '$components/Button';
-import IdeaCard from '$components/IdeaCard';
 
+import ListScreen from './screens/ListScreen';
 import EditScreen from './screens/EditScreen';
 
 import {
@@ -12,7 +12,6 @@ import {
   Header,
   Main,
   ActionsWrapper,
-  IdeaList,
 } from './App.styles';
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -33,20 +32,7 @@ class App extends Component {
         </Header>
         <Main>
           <Container>
-            <IdeaList>
-              <IdeaCard
-                title="El amor"
-                description="Estudiar amor de Dios"
-                date="1/1/2019"
-                color="red"
-              />
-              <IdeaCard
-                title="La familia"
-                description="Estudiar amor de Dios"
-                date="1/1/2019"
-                color="green"
-              />
-            </IdeaList>
+            <ListScreen />
             <EditScreen />
           </Container>
         </Main>

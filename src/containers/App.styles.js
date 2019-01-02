@@ -36,7 +36,3 @@ export const ActionsWrapper = styled.div`
 export const Main = styled.div`
   padding: 30px 0;
 `;
-
-export const IdeaList = styled.div`
-  display: flex;
-`;
