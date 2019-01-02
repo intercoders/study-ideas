@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { setFilter } from '$redux/actions';
+
 import Container from '$components/layout/Container';
 import Search from '$components/Search';
 import Button from '$components/Button';
@@ -12,7 +14,7 @@ class Header extends Component {
   handleFilter = (event) => {
     const { dispatch } = this.props;
     const { value } = event.target;
-    dispatch({ type: 'SET_FILTER', value });
+    dispatch(setFilter(value));
   }
 
   render() {

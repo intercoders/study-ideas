@@ -1,3 +1,5 @@
+import { SET_FILTER } from './action-types';
+
 const initialState = {
   ideas: [
     { title: 'Redux' },
@@ -8,7 +10,7 @@ const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case 'SET_FILTER': {
+    case SET_FILTER: {
       const { value } = action;
       return {
         ...state,
