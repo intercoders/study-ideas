@@ -1,16 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { FormWrapper, FormButton, ActionsWrapper } from './IdeaForm.styles';
+import {
+  FormWrapper,
+  InputGroup,
+  Separator,
+  ActionsGroup,
+  ButtonsWrapper,
+  FormButton,
+  CloseButton,
+} from './IdeaForm.styles';
 
 const IdeaForm = ({ onSubmit }) => (
   <FormWrapper onSubmit={onSubmit}>
-    <input type="text" />
-    <textarea />
-    <ActionsWrapper>
-      <FormButton>Cancel</FormButton>
-      <FormButton>Ok</FormButton>
-    </ActionsWrapper>
+    <InputGroup>
+      <input type="text" placeholder="Your title..." />
+      <textarea placeholder="Write a description here..." />
+    </InputGroup>
+    <Separator />
+    <ActionsGroup>
+      <CloseButton />
+      <ButtonsWrapper>
+        <FormButton>Cancel</FormButton>
+        <FormButton>Save</FormButton>
+      </ButtonsWrapper>
+    </ActionsGroup>
   </FormWrapper>
 );
 
