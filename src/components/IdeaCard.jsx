@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Wrapper, FooterTitle, AsideTitle } from './IdeaCard.styles';
+import { Wrapper, DetailsWrapper, SideLine } from './IdeaCard.styles';
 
 const IdeaCard = ({
   title,
@@ -10,13 +10,13 @@ const IdeaCard = ({
   star,
 }) => (
   <Wrapper>
-    <AsideTitle color={color} />
-    <div className="card-contents">
+    <SideLine color={color} />
+    <div>
       <h1>{title}</h1>
-      <FooterTitle>
+      <DetailsWrapper>
         <span>{date}·</span>
         <span>{star}</span>
-      </FooterTitle>
+      </DetailsWrapper>
     </div>
   </Wrapper>
 );
