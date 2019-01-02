@@ -8,19 +8,22 @@ import { IdeaList } from './ListScreen.styles';
 // eslint-disable-next-line react/prefer-stateless-function
 class ListScreen extends React.Component {
   render() {
-    const { ideas } = this.props;
+    const { ideas, filter } = this.props;
 
     return (
       <IdeaList>
-        {ideas.map(({ title }) => (
-          <IdeaCard
-            key={title}
-            title={title}
-            description="Estudiar aquello o lo otro"
-            date="1/1/2019"
-            color="red"
-          />
-        ))}
+        {ideas
+          .filter(({ title }) => title.toLowerCase().includes(filter.toLowerCase()))
+          .map(({ title }) => (
+            <IdeaCard
+              key={title}
+              title={title}
+              description="Estudiar aquello o lo otro"
+              date="1/1/2019"
+              color="red"
+            />
+          ))
+        }
       </IdeaList>
     );
   }
@@ -32,10 +35,12 @@ ListScreen.propTypes = {
       title: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  filter: PropTypes.string.isRequired,
 };
 
 export default connect(
   state => ({
     ideas: state.ideas,
+    filter: state.filter,
   }),
 )(ListScreen);
