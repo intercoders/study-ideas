@@ -1,9 +1,9 @@
 import { createStore } from 'redux';
 
-import reducer from './reducer';
+import rootReducer from './root-reducer';
 
 /* eslint-disable no-underscore-dangle */
 export default createStore(
-  reducer,
+  rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );

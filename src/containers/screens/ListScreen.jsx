@@ -40,7 +40,7 @@ ListScreen.propTypes = {
 
 export default connect(
   state => ({
-    ideas: state.ideas,
-    filter: state.filter,
+    ideas: state.ideas.data,
+    filter: state.filters.filter,
   }),
 )(ListScreen);

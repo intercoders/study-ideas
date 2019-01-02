@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { setFilter } from '$redux/actions';
+import { setFilter } from '$redux/filters/actions';
 
 import Container from '$components/layout/Container';
 import Search from '$components/Search';
@@ -48,6 +48,6 @@ Header.propTypes = {
 
 export default connect(
   state => ({
-    filter: state.filter,
+    filter: state.filters.filter,
   }),
 )(Header);

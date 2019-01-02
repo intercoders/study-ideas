@@ -1,14 +1,10 @@
 import { SET_FILTER } from './action-types';
 
 const initialState = {
-  ideas: [
-    { title: 'Redux' },
-    { title: 'React Native' },
-  ],
   filter: '',
 };
 
-const reducer = (state = initialState, action = {}) => {
+const filtersReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SET_FILTER: {
       const { value } = action;
@@ -22,4 +18,4 @@ const reducer = (state = initialState, action = {}) => {
   }
 };
 
-export default reducer;
+export default filtersReducer;
