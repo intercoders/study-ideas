@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import { gotoScreen } from '$redux/screen/actions';
 
 import IdeaForm from '$components/IdeaForm';
 
 import { Wrapper } from './EditScreen.styles';
 
-// eslint-disable-next-line
 class EditScreen extends Component {
+  handleClose = () => {
+    const { dispatch } = this.props;
+    dispatch(gotoScreen('list'));
+  }
+
   render() {
     return (
       <Wrapper>
-        <IdeaForm />
+        <IdeaForm onClickClose={this.handleClose} />
       </Wrapper>
     );
   }
 }
 
-export default EditScreen;
+EditScreen.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+};
+
+export default connect()(EditScreen);

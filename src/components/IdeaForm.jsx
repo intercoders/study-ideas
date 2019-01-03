@@ -11,7 +11,7 @@ import {
   CloseButton,
 } from './IdeaForm.styles';
 
-const IdeaForm = ({ onSubmit }) => (
+const IdeaForm = ({ onSubmit, onClickClose }) => (
   <FormWrapper onSubmit={onSubmit}>
     <InputGroup>
       <input type="text" placeholder="Your title..." />
@@ -19,10 +19,10 @@ const IdeaForm = ({ onSubmit }) => (
     </InputGroup>
     <Separator />
     <ActionsGroup>
-      <CloseButton />
+      <CloseButton type="button" onClick={onClickClose} />
       <ButtonsWrapper>
-        <FormButton>Cancel</FormButton>
-        <FormButton>Save</FormButton>
+        <FormButton type="button">Other action</FormButton>
+        <FormButton type="submit">Save</FormButton>
       </ButtonsWrapper>
     </ActionsGroup>
   </FormWrapper>
@@ -30,10 +30,11 @@ const IdeaForm = ({ onSubmit }) => (
 
 IdeaForm.propTypes = {
   onSubmit: PropTypes.func,
+  onClickClose: PropTypes.func.isRequired,
 };
 
 IdeaForm.defaultProps = {
-  onSubmit: () => {},
+  onSubmit: e => e.preventDefault(),
 };
 
 export default IdeaForm;
