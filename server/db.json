@@ -1,0 +1,12 @@
+{
+  "ideas": [
+    {
+      "id": 1,
+      "title": "Redux"
+    },
+    {
+      "id": 2,
+      "title": "React Native"
+    }
+  ]
+}

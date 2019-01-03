@@ -1,8 +1,5 @@
 const initialState = {
-  data: [
-    { title: 'Redux' },
-    { title: 'React Native' },
-  ],
+  data: [],
 };
 
 const ideasReducer = (state = initialState, action = {}) => {
