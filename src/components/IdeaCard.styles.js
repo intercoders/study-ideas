@@ -7,6 +7,11 @@ export const Wrapper = styled.div`
     margin: 0;
     font-weight: 400;
     line-height: 1;
+    cursor: pointer;
+
+    :hover {
+      text-decoration: underline;
+    }
   }
 `;
 

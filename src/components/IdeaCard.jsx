@@ -8,11 +8,12 @@ const IdeaCard = ({
   color,
   date,
   star,
+  onClick,
 }) => (
   <Wrapper>
     <SideLine color={color} />
     <div>
-      <h1>{title}</h1>
+      <h1 onClick={onClick}>{title}</h1>
       <DetailsWrapper>
         <span>{date}·</span>
         <span>{star}</span>
@@ -26,11 +27,13 @@ IdeaCard.propTypes = {
   color: PropTypes.string,
   date: PropTypes.string.isRequired,
   star: PropTypes.number,
+  onClick: PropTypes.func,
 };
 
 IdeaCard.defaultProps = {
   color: 'red',
   star: 1,
+  onClick: () => {},
 };
 
 export default IdeaCard;

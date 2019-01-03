@@ -2,11 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { gotoScreen } from '$redux/screen/actions';
+
 import IdeaCard from '$components/IdeaCard';
 import { IdeaList } from './ListScreen.styles';
 
-// eslint-disable-next-line react/prefer-stateless-function
 class ListScreen extends React.Component {
+  handleCardClick = () => {
+    const { dispatch } = this.props;
+
+    dispatch(gotoScreen('edit'));
+  }
+
   render() {
     const { ideas, filter } = this.props;
 
@@ -16,6 +23,7 @@ class ListScreen extends React.Component {
           .filter(({ title }) => title.toLowerCase().includes(filter.toLowerCase()))
           .map(({ title }) => (
             <IdeaCard
+              onClick={this.handleCardClick}
               key={title}
               title={title}
               description="Estudiar aquello o lo otro"
@@ -30,6 +38,7 @@ class ListScreen extends React.Component {
 }
 
 ListScreen.propTypes = {
+  dispatch: PropTypes.func.isRequired,
   ideas: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
