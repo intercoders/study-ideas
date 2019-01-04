@@ -1,7 +1,8 @@
-import ListScreen from './ListScreen';
-import EditScreen from './EditScreen';
+import IdeasList from './ideas/List';
+import IdeasEdit from './ideas/Edit';
 
 export default {
-  list: ListScreen,
-  edit: EditScreen,
+  // ideas
+  'ideas-list': IdeasList,
+  'ideas-edit': IdeasEdit,
 };

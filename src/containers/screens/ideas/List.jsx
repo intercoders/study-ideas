@@ -6,7 +6,7 @@ import { request as requestIdeas } from '$redux/ideas/actions';
 import { gotoScreen } from '$redux/screen/actions';
 
 import IdeaCard from '$components/IdeaCard';
-import { IdeaList } from './ListScreen.styles';
+import { Wrapper } from './List.styles';
 
 class ListScreen extends React.Component {
   componentDidMount = () => {
@@ -18,7 +18,7 @@ class ListScreen extends React.Component {
   handleCardClick = () => {
     const { dispatch } = this.props;
 
-    dispatch(gotoScreen('edit'));
+    dispatch(gotoScreen('ideas-edit'));
   }
 
   render() {
@@ -33,7 +33,7 @@ class ListScreen extends React.Component {
     if (error) return <div>Sorry, an error occurred while loading the list!</div>;
 
     return (
-      <IdeaList>
+      <Wrapper>
         {ideas
           .filter(({ title }) => title.toLowerCase().includes(filter.toLowerCase()))
           .map(({ title }) => (
@@ -47,7 +47,7 @@ class ListScreen extends React.Component {
             />
           ))
         }
-      </IdeaList>
+      </Wrapper>
     );
   }
 }

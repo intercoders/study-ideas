@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const cardMargin = 20;
 
-export const IdeaList = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
 

@@ -6,12 +6,12 @@ import { gotoScreen } from '$redux/screen/actions';
 
 import IdeaForm from '$components/IdeaForm';
 
-import { Wrapper } from './EditScreen.styles';
+import { Wrapper } from './Edit.styles';
 
 class EditScreen extends Component {
   handleClose = () => {
     const { dispatch } = this.props;
-    dispatch(gotoScreen('list'));
+    dispatch(gotoScreen('ideas-list'));
   }
 
   render() {

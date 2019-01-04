@@ -1,7 +1,7 @@
 import { GOTO_SCREEN } from './action-types';
 
 const initialState = {
-  slug: 'list',
+  slug: 'ideas-list',
 };
 
 const screenReducer = (state = initialState, action = {}) => {
