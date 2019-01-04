@@ -1,9 +1,22 @@
-import { createStore } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 
+// import roots
 import rootReducer from './root-reducer';
+import rootSaga from './root-saga';
+
+const sagaMiddleware = createSagaMiddleware();
 
 /* eslint-disable no-underscore-dangle */
-export default createStore(
+const store = createStore(
   rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  compose(
+    applyMiddleware(sagaMiddleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  ),
 );
+
+// run saga
+sagaMiddleware.run(rootSaga);
+
+export default store;
