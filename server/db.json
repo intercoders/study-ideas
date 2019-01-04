@@ -2,11 +2,13 @@
   "ideas": [
     {
       "id": 1,
-      "title": "Redux"
+      "title": "Redux",
+      "created": "11/11/2018"
     },
     {
       "id": 2,
-      "title": "React Native"
+      "title": "React Native",
+      "created": "03/01/2019"
     }
   ]
 }

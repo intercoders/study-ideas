@@ -36,13 +36,13 @@ class ListScreen extends React.Component {
       <Wrapper>
         {ideas
           .filter(({ title }) => title.toLowerCase().includes(filter.toLowerCase()))
-          .map(({ title }) => (
+          .map(({ title, created }) => (
             <IdeaCard
               onClick={this.handleCardClick}
               key={title}
               title={title}
-              description="Estudiar aquello o lo otro"
-              date="1/1/2019"
+              description="Study stuff"
+              date={created}
               color="red"
             />
           ))
