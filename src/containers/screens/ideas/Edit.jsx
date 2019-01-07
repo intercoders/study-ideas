@@ -8,23 +8,50 @@ import IdeaForm from '$components/IdeaForm';
 
 import { Wrapper } from './Edit.styles';
 
-class EditScreen extends Component {
+class IdeasEdit extends Component {
   handleClose = () => {
     const { dispatch } = this.props;
     dispatch(gotoScreen('ideas-list'));
   }
 
   render() {
+    const { loading, error, single } = this.props;
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>There was an error while loading this idea!</div>;
+
+    // take properties from single
+    const { title, description } = single;
+
     return (
       <Wrapper>
-        <IdeaForm onClickClose={this.handleClose} />
+        <IdeaForm
+          onClickClose={this.handleClose}
+          title={title}
+          description={description}
+        />
       </Wrapper>
     );
   }
 }
 
-EditScreen.propTypes = {
+IdeasEdit.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
+  single: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+  }),
 };
 
-export default connect()(EditScreen);
+IdeasEdit.defaultProps = {
+  single: null,
+};
+
+export default connect(
+  state => ({
+    loading: state.ideas.loading,
+    error: state.ideas.error,
+    single: state.ideas.single,
+  }),
+)(IdeasEdit);

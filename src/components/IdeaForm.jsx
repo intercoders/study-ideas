@@ -11,11 +11,31 @@ import {
   CloseButton,
 } from './IdeaForm.styles';
 
-const IdeaForm = ({ onSubmit, onClickClose }) => (
+const IdeaForm = ({
+  onSubmit,
+  onClickClose,
+
+  // values
+  title,
+  description,
+
+  // handlers
+  onChangeTitle,
+  onChangeDescription,
+}) => (
   <FormWrapper onSubmit={onSubmit}>
     <InputGroup>
-      <input type="text" placeholder="Your title..." />
-      <textarea placeholder="Write a description here..." />
+      <input
+        type="text"
+        placeholder="Your title..."
+        value={title}
+        onChange={onChangeTitle}
+      />
+      <textarea
+        placeholder="Write a description here..."
+        value={description}
+        onChange={onChangeDescription}
+      />
     </InputGroup>
     <Separator />
     <ActionsGroup>
@@ -31,10 +51,22 @@ const IdeaForm = ({ onSubmit, onClickClose }) => (
 IdeaForm.propTypes = {
   onSubmit: PropTypes.func,
   onClickClose: PropTypes.func.isRequired,
+
+  // values
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+
+  // handlers
+  onChangeTitle: PropTypes.func,
+  onChangeDescription: PropTypes.func,
 };
 
 IdeaForm.defaultProps = {
   onSubmit: e => e.preventDefault(),
+
+  // handlers
+  onChangeTitle: () => {},
+  onChangeDescription: () => {},
 };
 
 export default IdeaForm;

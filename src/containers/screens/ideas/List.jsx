@@ -2,22 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { request as requestIdeas } from '$redux/ideas/actions';
+import {
+  requestList,
+  requestSingle,
+} from '$redux/ideas/actions';
 import { gotoScreen } from '$redux/screen/actions';
 
 import IdeaCard from '$components/IdeaCard';
 import { Wrapper } from './List.styles';
 
-class ListScreen extends React.Component {
+class IdeasList extends React.Component {
   componentDidMount = () => {
     const { dispatch } = this.props;
 
-    dispatch(requestIdeas());
+    dispatch(requestList());
   }
 
-  handleCardClick = () => {
+  handleCardClick = (id) => {
     const { dispatch } = this.props;
 
+    dispatch(requestSingle(id));
     dispatch(gotoScreen('ideas-edit'));
   }
 
@@ -36,10 +40,10 @@ class ListScreen extends React.Component {
       <Wrapper>
         {ideas
           .filter(({ title }) => title.toLowerCase().includes(filter.toLowerCase()))
-          .map(({ title, created }) => (
+          .map(({ id, title, created }) => (
             <IdeaCard
-              onClick={this.handleCardClick}
-              key={title}
+              onClick={() => this.handleCardClick(id)}
+              key={id}
               title={title}
               description="Study stuff"
               date={created}
@@ -52,7 +56,7 @@ class ListScreen extends React.Component {
   }
 }
 
-ListScreen.propTypes = {
+IdeasList.propTypes = {
   dispatch: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.bool.isRequired,
@@ -68,7 +72,7 @@ export default connect(
   state => ({
     loading: state.ideas.loading,
     error: state.ideas.error,
-    ideas: state.ideas.data,
+    ideas: state.ideas.list,
     filter: state.filters.filter,
   }),
-)(ListScreen);
+)(IdeasList);
